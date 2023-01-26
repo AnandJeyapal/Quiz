@@ -12,15 +12,15 @@ code {
     monospace;
 }
 
-.question-block > label {
+.question-block>label {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
-.question-block > label:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.question-block>label:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .question-holder {
@@ -33,21 +33,32 @@ code {
   margin-bottom: 0.5rem;
   padding-left: 0.7rem;
 }
-.options-holder {
+
+.options-holder,
+.trivia-options-holder {
   display: flex;
   flex-direction: column;
   margin-left: 1.5rem;
   margin-top: 1rem;
 }
+
+.trivia-options-holder {
+  margin-left: 0;
+  min-width: 300px;
+  max-width: 450px;
+  margin-top: 0;
+}
+
 .option-block {
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin-bottom: 0.5rem;
   display: flex;
   align-content: center;
   align-items: center;
 }
+
 .option-number {
   cursor: pointer;
   background-color: blue;
@@ -58,12 +69,14 @@ code {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
 .option-description {
   cursor: pointer;
   padding: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
 .answer {
   /* border-color:green !important;
   border: 1px solid;
@@ -78,23 +91,25 @@ code {
 }
 
 main {
-  
+
   padding-top: 1rem;
   padding-left: 1rem;
   display: flex;
   width: 98vw;
 }
+
 .question-header {
   font-weight: 600;
   margin-bottom: 0;
 }
+
 .question-block {
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
 }
 
-.question-block > label {
+.question-block>label {
   cursor: pointer;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -133,13 +148,14 @@ main {
 
 }
 
-.answer-block > label {
+.answer-block>label {
   cursor: pointer;
 }
 
 .not-answered {
   background-color: rgb(199, 194, 194) !important;
 }
+
 .wrong {
   background-color: rgb(218, 138, 138) !important;
 }
@@ -147,13 +163,280 @@ main {
 .right {
   background-color: rgb(150, 209, 115) !important;
 }
+
 .answer-block {
-   /* background-color: red; */
-   border-radius: 1.5rem;
-   text-align: center;
-   padding: 0.75rem;
-   cursor: pointer;
-   border: 1px solid;
-   border-color:#5685FF ;
+  /* background-color: red; */
+  border-radius: 1.5rem;
+  text-align: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: #5685FF;
 }
 
+.primary {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 32px;
+
+}
+
+.confirm-text>p {
+  font-weight: bold;
+  margin-right: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.confirm-text {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.end-text
+{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+.bold {
+  font-weight: 700;
+}
+.secondary {
+  color: rgba(33, 34, 16, 0.56);
+  line-height: 28px;
+  font-size: 1.10rem;
+
+}
+
+.front-page,
+.question-page {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  text-align: center;
+
+}
+
+.name-page {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: start;
+
+  text-align: left;
+}
+
+.start-button {
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity, box-shadow;
+  transition-timing-function: ease-out;
+  outline: none;
+  border: 1px solid transparent;
+  margin: 0px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 3px 12px 0px;
+  padding: 8px 18px;
+  min-height: 48px;
+  background-color: rgb(75, 185, 183);
+  color: rgb(1, 4, 4);
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.input-name:focus {
+  box-shadow: rgb(19 124 117) 0px 2px;
+  color: black
+}
+
+::placeholder {
+  color: rgb(19, 124, 117);
+}
+
+.input-name {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+  color: rgb(12, 63, 60);
+  padding: 0px 0px 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 12px;
+  /* border-radius: 0px; */
+  /* appearance: none; */
+  /* background-image: none; */
+  /* background-position: initial; */
+  /* background-size: initial; */
+  /* background-repeat: initial; */
+  /* background-attachment: initial; */
+  /* background-origin: initial; */
+  /* background-clip: initial; */
+  /* transform: translateZ(0px); */
+  font-size: 30px;
+  -webkit-font-smoothing: antialiased;
+  /* line-height: unset; */
+  -webkit-text-fill-color: rgba(19, 124, 117, 0.3);
+  animation: 1ms ease 0s 1 normal none running native-autofill-in;
+  transition: background-color 1e+08s ease 0s, box-shadow 0.1s ease-out 0s;
+  box-shadow: rgb(19 124 117 / 30%) 0px 1px;
+  background-color: inherit;
+}
+
+.pt-1 {
+  padding-top: 1rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.al-s {
+  align-self: start;
+}
+
+.holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame-text-holder {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+.holder {
+  background-color: rgb(249, 222, 86);
+  font-family: 'arvo', 'sans-serif';
+}
+
+
+.trivia-option-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  margin-right: 0.5rem;
+  width: 24px;
+  min-width: 22px;
+  height: 24px;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: sans-serif;
+  border-color: rgba(19, 124, 117, 0.6);
+  background-color: rgba(249, 222, 86, 0.8);
+  color: rgb(19, 124, 117);
+
+}
+
+.trivia-option-value {
+  display: flex;
+  color: rgb(19, 124, 117);
+  flex-grow: 1;
+  padding-right: 0.5rem
+}
+
+.trivia-option-block {
+  min-width: 300px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 20px;
+  background-color: rgba(19, 124, 117, 0.1);
+  box-shadow: rgb(19 124 117 / 60%) 0px 0px 0px 1px inset;
+  color: rgb(19, 124, 117);
+  max-width: 100%;
+  min-width: 75px;
+  min-height: 40px;
+  outline: 0px;
+  padding: 0.5rem;
+  transition-duration: 0.1s;
+  transition-property: background-color, color, border-color, opacity, box-shadow;
+  transition-timing-function: ease-out;
+  width: 100%;
+  cursor: pointer;
+  opacity: 1;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.selected {
+  animation: blinkingOption 2s infinite;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.al-l {
+  align-self: start;
+}
+
+.trivia-question-holder {
+  font-size: 24px;
+  line-height: 1.7;
+  color: rgb(33, 34, 16);
+}
+
+.trivia-question-block {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  width: 750px;
+  overflow-wrap: break-word;
+}
+
+.trivia-quiz-page {
+  width: 750px;
+  overflow-wrap: break-word;
+}
+
+.trivia-option-block:hover {
+  background-color: rgb(9 102 96 / 25%)
+}
+
+@keyframes blinkingOption {
+  0% {
+    background-color: rgb(9 102 96 / 30%);
+  }
+
+  25% {
+    color: rgb(9 102 96 / 25%);
+  }
+
+  50% {
+    background-color: rgb(9 102 96 / 30%);
+  }
+
+  75% {
+    color: rgb(9 102 96 / 25%);
+  }
+
+  100% {
+    background-color: rgb(9 102 96 / 30%);
+  }
+}
+
+.fg-1 {
+  flex-grow: 1;
+}
+
+.end-image {
+  align-self: center;
+    margin-bottom: 1.5rem;
+
+}
+.al-c {
+  align-items: center;
+}

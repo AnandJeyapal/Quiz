@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Main from './components/Main'
+import TriviaQuiz from './components/TriviaQuiz';
 
 function App() {
   return (
     <div className="app-block">
-    <Main/>
+    <TriviaQuiz/>
     </div>
   );
 }
