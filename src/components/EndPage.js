@@ -13,9 +13,9 @@ export default function EndPage(props) {
 
   return (
     <div>
-      {winner && <WinnerPage name = {props.name} correctAnswers = {validAnswers} />}
-      {pass && <PassPage  name = {props.name} correctAnswers = {validAnswers} />}
-      {loser && <LoserPage  name = {props.name} correctAnswers = {validAnswers} />}
+      {winner && <WinnerPage name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
+      {pass && <PassPage  name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
+      {loser && <LoserPage  name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
     </div>
   )
 }

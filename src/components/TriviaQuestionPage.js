@@ -7,6 +7,8 @@ export default function TriviaQuestionPage(props)  {
 
   // console.log(props)
 
+  const nextButtonRef = React.useRef(null)
+
   function handleClick(option) {
       props.handleOptionClick(props.question_no, option)
    }
@@ -35,6 +37,15 @@ export default function TriviaQuestionPage(props)  {
     name = {getClassName(answer)} onClick={handleClick} number ={count++} value={answer}/>)
 
   
+  function handleNextClick() {
+     if(!props.answered) {
+       nextButtonRef.current.classList.add("button-shake")
+     } else {
+      nextButtonRef.current.classList.remove("button-shake")
+      props.handleNextClick()
+     }
+  }
+
   return (
     <div className="trivia-question-block">
       
@@ -44,7 +55,7 @@ export default function TriviaQuestionPage(props)  {
       <div className="trivia-options-holder">
         {answerComponents}
       </div>
-      <button onClick = {props.handleNextClick} className='start-button al-l mt-1'>Next</button>
+      <button ref = {nextButtonRef} onClick = {handleNextClick}  onAnimationEnd={() => nextButtonRef.current.classList.remove("button-shake")} className='start-button al-l mt-1'>Next</button>
     </div>
   )
 }
