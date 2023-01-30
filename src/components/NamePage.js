@@ -1,4 +1,5 @@
 import React from 'react'
+import { easeInOut, motion } from "framer-motion"
 
 export default function NamePage(props) {
 
@@ -9,11 +10,13 @@ export default function NamePage(props) {
   }
 
   return (
-    <div className='name-page'>
+    <motion.div  className='name-page' initial={{ opacity: 0}}
+    animate={{ opacity: 1}}
+    transition={{duration:0.4, ease: easeInOut}}>
       <h1 className='primary pt-1' >What's your name, challenger?*</h1>
       <p className='secondary mt-0'>Just your first one is fine. Or a nickname.</p>
-      <input spellcheck = "false" onChange ={(e) => setName(e.target.value)} className = 'input-name' type='text' placeholder='Your Name' value = {name}/>
+      <input spellCheck = "false" onChange ={(e) => setName(e.target.value)} className = 'input-name' type='text' placeholder='Your Name' value = {name}/>
       <button className='start-button' onClick={onNameEntered}>OK</button>
-    </div>
+    </motion.div >
   )
 }

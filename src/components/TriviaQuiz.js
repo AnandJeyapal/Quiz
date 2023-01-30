@@ -2,6 +2,7 @@ import React from 'react'
 
 import FrontPage from './FrontPage'
 import QuizPage from './QuizPage';
+import { easeInOut, motion } from "framer-motion"
 
 export default function TriviaQuiz() {
 
@@ -21,7 +22,7 @@ export default function TriviaQuiz() {
   }
 
   function createAnswers(questions) {
-    return  questions.map((question, index) => ({question_number: index+1, answered: false, answer: "", 
+    return  questions.map((question, index) => ({question_number: index+1, answer: "", 
     correctAnswer: question.correctAnswer}))
   }
 
@@ -55,13 +56,13 @@ export default function TriviaQuiz() {
 
   function updateAnswers(existingAnswers, question_no, user_answer) {
     return existingAnswers.map((prevAnswer, index) => 
-    index + 1 == question_no ? {...prevAnswer, answered: true, answer:user_answer} : prevAnswer)
+    index + 1 == question_no ? {...prevAnswer, answer:user_answer} : prevAnswer)
   }
 
   function showNextQuestion(currentQuestion) {
     console.log(currentQuestion)
     console.log(quizState)
-    if(!quizState.user_answers[currentQuestion-1].answered) {
+    if(quizState.user_answers[currentQuestion-1].answer === "") {
        setQuizState(prev => ({...prev, hasError: true}));
     } else if(currentQuestion == 12) {
       setQuizState(prev => ({...prev, allAnswered: true}));
@@ -85,6 +86,6 @@ export default function TriviaQuiz() {
             allAnswered = {quizState.allAnswered}
             quizStarted = {quizState.quizStarted}
             restartQuiz = {restart}/>}
-    </div>
+    </div >
   )
 }

@@ -1,13 +1,28 @@
 import React from "react";
 import { nanoid } from 'nanoid'
 import TriviaOption from "./TriviaOption";
+import { easeInOut, motion, useAnimationControls } from "framer-motion"
 
 
 export default function TriviaQuestionPage(props)  {
 
-  // console.log(props)
+  const controls = useAnimationControls();
 
   const nextButtonRef = React.useRef(null)
+
+  const parentRef = React.useRef(null)
+
+  React.useEffect(() => {
+    if(props.user_answer === "") {
+      controls.start({
+        opacity: 1,
+        transition: { duration: 0.4 }
+      })
+    } else {
+      parentRef.current.style.opacity = 1
+    }}, [])
+
+
 
   function handleClick(option) {
       props.handleOptionClick(props.question_no, option)
@@ -16,7 +31,7 @@ export default function TriviaQuestionPage(props)  {
    function getClassName(option) {
     let className = "";
 
-    if(props.answered && option === props.user_answer) {
+    if(option === props.user_answer) {
       className += " selected";  
     }
     
@@ -38,7 +53,7 @@ export default function TriviaQuestionPage(props)  {
 
   
   function handleNextClick() {
-     if(!props.answered) {
+     if(props.user_answer === "") {
        nextButtonRef.current.classList.add("button-shake")
      } else {
       nextButtonRef.current.classList.remove("button-shake")
@@ -47,7 +62,7 @@ export default function TriviaQuestionPage(props)  {
   }
 
   return (
-    <div className="trivia-question-block">
+    <motion.div ref = {parentRef} initial ={{opacity: 0}} animate={controls} className="trivia-question-block">
       
       <div className="trivia-question-holder">
       <p>{props.question_no + ". " +props.question}</p>
@@ -56,6 +71,6 @@ export default function TriviaQuestionPage(props)  {
         {answerComponents}
       </div>
       <button ref = {nextButtonRef} onClick = {handleNextClick}  onAnimationEnd={() => nextButtonRef.current.classList.remove("button-shake")} className='start-button al-l mt-1'>Next</button>
-    </div>
+    </motion.div>
   )
 }

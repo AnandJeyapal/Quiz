@@ -14,18 +14,17 @@ export default function QuizPage(props) {
     questionComponent = <TriviaQuestionPage key ={nanoid()} 
     handleNextClick = {() => props.showNextQuestion(props.currentQuestion)}
     handleOptionClick = {props.handleOptionClick}
-    answered =  {answerData.answered}
     user_answer = {answerData.answer}
     question_no = {currentQuestionIndex+1} {...currentQuestionData}/>
   }
 
   
   return (
-    <section className = "trivia-quiz-page">
+    <div className = "trivia-quiz-page">
       {props.name === "" && <NamePage onNameEntered = {props.onNameEntered}/>}
       {props.name !== "" && !props.quizStarted && <ConfirmPage name = {props.name} onStartQuiz ={props.onStartQuiz}/>}
       {props.quizStarted && !props.allAnswered && questionComponent}
       {props.allAnswered && <EndPage name = {props.name} answers = {props.answers} restartQuiz = {props.restartQuiz}/>}
-    </section> 
+    </div  > 
   )
 }
