@@ -14,7 +14,6 @@ export default function PassPage(props) {
         <label className='bold'>{props.correctAnswers}</label>
         <label>/12 answers right!
         You're welcome at our quiz table any day...</label></div>
-      <button className='start-button' onClick = {props.restartQuiz}>Again</button>
     </div>
   )
 }

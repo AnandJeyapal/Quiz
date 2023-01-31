@@ -15,6 +15,21 @@ export default function EndPage(props) {
   let pass = validAnswers >= 7 && validAnswers <10;
   let loser = validAnswers <7;
   
+  const upHandler = (event) => {
+    event.preventDefault()
+    if(event.key === 'Enter') {
+      props.restartQuiz()
+    }
+  };
+
+  // Add event listeners
+  React.useEffect(() => {
+    window.addEventListener("keyup", upHandler);
+    return () => {
+      window.removeEventListener("keyup", upHandler);
+    };
+  }, []);
+
 
   return (
     <div>
@@ -22,9 +37,15 @@ export default function EndPage(props) {
       width={width}
       height={height}
       />
-      {winner && <WinnerPage name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
-      {pass && <PassPage  name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
-      {loser && <LoserPage  name = {props.name} correctAnswers = {validAnswers} restartQuiz = {props.restartQuiz}/>}
+      <div className='end-page al-c'>
+        {winner && <WinnerPage name = {props.name} correctAnswers = {validAnswers}/>}
+        {pass && <PassPage  name = {props.name} correctAnswers = {validAnswers}/>}
+        {loser && <LoserPage  name = {props.name} correctAnswers = {validAnswers}/>}
+        <div className='button-wrapper'>
+        <button className='start-button' onClick={props.restartQuiz}>Again</button>
+        <div className='button-helper'>press <strong>Enter ↵</strong></div>
+      </div>
+      </div>
     </div>
   )
 }

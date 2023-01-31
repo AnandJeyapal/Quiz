@@ -14,7 +14,6 @@ export default function LoserPage(props) {
         <label className='bold'>{props.name}</label> 
         <label> On the plus side, that probably means 
           you don't spend too much time learning obscure facts just so you can be good at trivia quizzes</label></div>
-      <button className='start-button' onClick = {props.restartQuiz}>Again</button>
     </div>
   )
 }

@@ -454,3 +454,26 @@ main {
 ::placeholder {
   color: rgba(19, 124, 117, 0.3);
 }
+
+.button-helper {
+    margin-left: 12px;
+    max-width: 100%;
+    width: inherit;
+    font-weight: unset;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(33, 34, 16);
+    font-family: sans-serif;
+    text-align: left;
+
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.end-page {
+  display: flex;
+  flex-direction: column;
+}

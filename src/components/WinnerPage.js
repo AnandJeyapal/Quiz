@@ -15,7 +15,6 @@ export default function WinnerPage(props) {
         <label>/12 answers right!
           Your prize is the knowledge that you probably know the most obscure facts out of anyone in the room.
           Especially if you're alone. Then you definitely do.</label></div>
-      <button className='start-button' onClick = {props.restartQuiz}>Again</button>
-    </div>
+      </div>
   )
 }
